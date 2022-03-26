@@ -1,8 +1,5 @@
 #include "Money.h"
-#include "Account"
-
-int main(){
-
+#include "Account.h"
 
 
 return 0;
