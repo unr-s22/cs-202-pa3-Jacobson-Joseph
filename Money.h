@@ -1,21 +1,29 @@
 #include <iostream>
-
+#include <vector>
 #ifndef MONEY_H
 #define MONEY_H
 
 class Money{
 
     private:
-        int dollars, cents, allmoney;
+        std::vector<int> allmoney;
     public:
-    Money();
+        int GetDollars() const;
+        int GetCents() const;
+        explicit Money(const int Dollars, const int Cents);
+        friend std::ostream &operator<<(std::ostream &os, const Money &money);
 
-    friend std::ostream &operator<<(std::ostream &os, const Money &money){
-        os << "$" << money.allmoney * 0.01;
-        return os;
-    }
+        bool operator <(const Money& allmoney);
+        bool operator >(const Money& allmoney);
+        bool operator <=(const Money& allmoney);
+        bool operator >=(const Money& allmoney);
+        bool operator !=(const Money& allmoney);
+        bool operator ==(const Money& allmoney);
+        Money operator +(const Money& allmoney);
+        Money operator -(const Money& allmoney);
 
-
+        explicit Money();
+        virtual ~Money();
 
 };
 
