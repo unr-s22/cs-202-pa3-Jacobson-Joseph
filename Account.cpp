@@ -2,8 +2,8 @@
 #include <vector>
 #include "Account.h"
 
-Account::Account(Money D){
-	balance = D;
+Account::Account(double Input){
+	balance = Input;
 }
 void Account::makeDeposit(Money D){
 	depo = true;
@@ -16,6 +16,6 @@ void Account::makeWithdrawals(Money D){
 }
 std::ostream &operator << (std::ostream &os, const Account &D){
 	os <<"$" << D.balance << std::endl;
-
+    return os;
 }
 	

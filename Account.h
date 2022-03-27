@@ -4,14 +4,14 @@
 #include <vector>
 #include <iostream>
 
-class Account: public Money{
+class Account : public Money{
 
 	public:
-	Money balance;
+    explicit Account(double Input);
+    double balance;
 	std::vector<Money> deposit;
 	std::vector<Money> withdrawal;
 	bool depo, with;
-	Account(Money D);
 	void makeDeposit(Money D);
 	void makeWithdrawals(Money D);
 	
