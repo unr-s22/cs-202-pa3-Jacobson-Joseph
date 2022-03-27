@@ -2,30 +2,46 @@
 #include <vector>
 #include "Money.h"
 #include "Account.h"
+    
+    Money Moneyyy(400,23);
+    Account account(Moneyyy);
 
-    Account Account(300.23);
 
+    std::cout << account << std::endl;
 
-    Account.std::cout<< os << std::endl;
+    account.makeDeposit(200.00);
 
-    Account.makeDeposit(200.00);
+    account.makeDeposit(300.24);
 
-    Account.makeDeposit(300.24);
-
-    Account.makeDeposit(501.22);
+    account.makeDeposit(501.22);
 
     for (int i=0; i<4; i++){
         std::cout << Account[i] <<std::endl;
     }
 
-    Account.makeWithdrawals(300.10);
-    Account.makeWithdrawals(201.34);
+    account.makeWithdrawals(300.10);
+    account.makeWithdrawals(201.34);
 
     for (int i=0; i<3; i++){
-        std::cout << Account[i] <<std::endl;
+        std::cout << account[i] <<std::endl;
     }
 
+/*
+std::cout << "Account Details
+--------------------------
+Current Balance:$100.55
+--------------------------
+Number of Deposits: 3
+--------------------
+(1) $100.33
+(2) $100.33
+(3) $100.33
+--------------------------
+Number of Withdrawals: 1
+--------------------------
+(1) $200.44" << std::endl;
 
+*/
     return 0;
 }
 
