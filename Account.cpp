@@ -6,17 +6,31 @@ Account::Account(Money Input){
 	balance = Input;
 }
 void Account::makeDeposit(Money D){
-	depo = true;
-	deposit.push_back(Money (D));	
+	
+	deposit.push_back(Money (D));
+	depo = true;	
 }
 void Account::makeWithdrawals(Money D){
-	with = true;
+	
 	withdrawal.push_back(Money (D));
+	with = true;
 
 }
-std::ostream &operator << (std::ostream &os,
-        Account &D){
-	os <<"$" << D.balance << std::endl;
-    return os;
+std::ostream &operator << (std::ostream &os, Account &m_Account){
+	
+	if(m_Account.depo == true){
+		for(Money D : m_Account.deposit){
+			m_Account.balance = m_Account.balance + D;
+		}
+		m_Account.depo=false;
+	}
+
+	if (m_Account.with == true){
+		for(Money D : m_Account.withdrawal){
+			m_Account.balance = m_Account.balance - D;
+		}
+	}
+	m_Account.with=false;
+   
 }
 	
