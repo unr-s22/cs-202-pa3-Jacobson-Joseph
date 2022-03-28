@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 
-class Account : public Money{
+class Account{
 
 	public:
     explicit Account(Money Input);

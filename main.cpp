@@ -25,7 +25,8 @@ int main(){
     account.makeWithdrawals(Withdrawal2);
 
     std::cout << account << std::endl;
-    
+
     return 0;
 }
+
 
