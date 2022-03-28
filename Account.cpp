@@ -14,7 +14,8 @@ void Account::makeWithdrawals(Money D){
 	withdrawal.push_back(Money (D));
 
 }
-std::ostream &operator << (std::ostream &os, Account &D){
+std::ostream &operator << (std::ostream &os,
+        Account &D){
 	os <<"$" << D.balance << std::endl;
     return os;
 }
