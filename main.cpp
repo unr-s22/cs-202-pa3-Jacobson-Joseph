@@ -21,9 +21,32 @@ int main(){
     account.makeWithdrawals(Withdrawal2);
 
     std::cout << account << std::endl;
-
-
     
+    account Money1(100,00);
+    account Money2(200,03);
+
+	if(Money1<Money2){
+		std::cout<<"Less than works!"<<std::endl;
+	}
+	
+	if(Money1<=Money2){
+		std::cout<<"Less than/equals to works!"<<std::endl;
+	}
+    	if(Money1!=Money2){
+		std::cout<<"Not equals to works!"<<std::endl;
+	}
+	if(Money2>Money1){
+		std::cout<<"Greater than works!"<<std::endl;
+	}
+	if(Money2>=Money1){
+		std::cout<<"Greater than/equals to works!"<<std::endl;
+	}
+    account Money3(100,00);
+    account Money4(100,00);
+	if(Money3==Money4){
+		std::cout<<"Equal too works"<<std::endl;
+	}
+	
 
     return 0;
 }
