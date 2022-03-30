@@ -4,14 +4,16 @@
 #include <vector>
 #include <iostream>
 
-class Account{
+class Account: public Money{
 
 	public:
-    	explicit Account(Money Input);
-   	Money balance;
-    	std::vector<Money> deposit;
-	std::vector<Money> withdrawal;
-	bool depo, with;
+    	Account(int d, int c) : Money(d, c){};
+   	
+	   	Money balance;
+    	
+		std::vector<Money> deposit;
+		std::vector<Money> withdrawal;
+	bool change = false;
 	void makeDeposit(Money D);
 	void makeWithdrawals(Money D);
 	

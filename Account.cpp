@@ -2,56 +2,52 @@
 #include <vector>
 #include "Account.h"
 
-Account::Account(Money Input){
-	balance = Input;
-}
 void Account::makeDeposit(Money D){
 	
-	deposit.push_back(Money (D));
-	depo = true;	
+	deposit.push_back(D);
+	change = true;	
 }
 void Account::makeWithdrawals(Money D){
 	
-	withdrawal.push_back(Money (D));
-	with = true;
+	withdrawal.push_back(D);
+	change = true;
 
 }
 std::ostream& operator << (std::ostream& print, Account& m_Account){
-	
-	if(m_Account.depo == true){
-		for(Money D : m_Account.deposit){
-			m_Account.balance = m_Account.balance + D;
+	Money balance(m_Account);
+	if(m_Account.change == true){
+		for(int i = 0; i < m_Account.deposit.size(); i++){
+			balance = balance + m_Account.deposit[i];
 		}
-		m_Account.depo=false;
-	}
+		m_Account.change=false;
 
-	if (m_Account.with == true){
-		for(Money D : m_Account.withdrawal){
-			m_Account.balance = m_Account.balance - D;
+		for(int i = 0; i < m_Account.withdrawal.size(); i++){
+			balance = balance - m_Account.withdrawal[i];
 		}
-		m_Account.with=false;
+		m_Account.change=false;
 	}
-   	print;
 	
-        	std::cout << "Account Details" << std::endl;
-		std::cout << "--------------------------" << std::endl;
-		std::cout << "Current Balance:" << m_Account.balance << std::endl;
-		std::cout << "--------------------------" << std::endl;
+        print << "Account Details" << std::endl;
+		print << "--------------------------" << std::endl;
+		print << "Current Balance:" << balance << std::endl;
+		print << "--------------------------" << std::endl;
 
 
-		std::cout<<"Number of Deposits: " <<m_Account.deposit.size() << std::endl;
-		std::cout<<"--------------------"<< std::endl;
+		print <<"Number of Deposits: " <<m_Account.deposit.size() << std::endl;
+		print <<"--------------------"<< std::endl;
 
 	for(int i=0; i<m_Account.deposit.size(); i++){
-		std::cout<<"("<< i +1 <<") "<< m_Account.deposit[i]<<std::endl;
+		print <<"("<< i +1 <<") "<< m_Account.deposit[i]<<std::endl;
 	}
-		std::cout << "--------------------------"<< std::endl;
-		std::cout<<"Number of Withdrawals: "<< m_Account.withdrawal.size() << std::endl;
-		std::cout << "--------------------------" << std::endl;
+		print << "--------------------------"<< std::endl;
+		print <<"Number of Withdrawals: "<< m_Account.withdrawal.size() << std::endl;
+		print << "--------------------------" << std::endl;
 
 	for(int i=0; i<m_Account.withdrawal.size(); i++){
-		std::cout<<"("<< i +1 <<") "<< m_Account.deposit[1]<<std::endl;
+		print <<"("<< i +1 <<") "<< m_Account.withdrawal[i]<<std::endl;
 		}
+	
+	
 	return print;
 }
 

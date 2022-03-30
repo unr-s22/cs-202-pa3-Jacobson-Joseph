@@ -6,25 +6,24 @@
 class Money{
 
     private:
-        std::vector<int> allmoney;
+        std::vector<Money> allmoney;
     public:
-        int GetDollars() const;
-        int GetCents() const;
-        explicit Money(const int Dollars, const int Cents);
+
+        int Dollar = 0, Cent = 0;
+        Money(const int Dollars, const int Cents);
         friend std::ostream &operator<<(std::ostream &os, const Money &money);
 
-        bool operator <(const Money& allmoney);
-        bool operator >(const Money& allmoney);
-        bool operator <=(const Money& allmoney);
-        bool operator >=(const Money& allmoney);
-        bool operator !=(const Money& allmoney);
-        bool operator ==(const Money& allmoney);
-        Money operator +(const Money& allmoney);
-        Money operator -(const Money& allmoney);
+        friend bool operator < (const Money Dollar, const Money Cent);
+        friend bool operator > (const Money Dollar, const Money Cent);
+        friend bool operator <=(const Money Dollar, const Money Cent);
+        friend bool operator >=(const Money Dollar, const Money Cent);
+        friend bool operator !=(const Money Dollar, const Money Cent);
+        friend bool operator ==(const Money Dollar, const Money Cent);
+        friend Money operator +(const Money Dollar, const Money Cent);
+        friend Money operator -(const Money Dollar, const Money Cent);
 
-        explicit Money();
-        virtual ~Money();
-
+        Money(){}
+        ~Money(){}
 };
 
 
