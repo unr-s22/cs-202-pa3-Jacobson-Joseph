@@ -10,61 +10,83 @@ Money::Money(const int Dollars, const int Cents){
         return os;
     }
 
+    bool operator < (const Money M1, const Money M2){
 
-    bool Money::operator < (const Money& money) {
-        if ((this -> GetDollars() < money.GetDollars())){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar + M2.Cent;
+            if (FirstValue<SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
+       }
+
+     bool operator > (const Money M1, const Money M2){
+
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar - M2.Cent;
+            if (FirstValue>SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
+       }
+
+    bool operator <= (const Money M1, const Money M2){
+
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar - M2.Cent;
+            if (FirstValue<=SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
+       }
+
+    bool operator >= (const Money M1, const Money M2){
+
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar - M2.Cent;
+            if (FirstValue>=SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
+       }
+
+    bool operator != (const Money M1, const Money M2){
+
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar - M2.Cent;
+            if (FirstValue!=SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
     }
+    
+    bool operator == (const Money M1, const Money M2){
 
-    bool Money::operator > (const Money& money) {
-        if ((this -> GetDollars() > money.GetDollars())){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        int FirstValue=M1.Dollar + M1.Cent;
+        int SecondValue=M2.Dollar - M2.Cent;
+            if (FirstValue == SecondValue)
+            { 
+                return 1;
+            }
+            else {
+                return 0;
+            }
     }
-
-    bool Money::operator <= (const Money& money){
-        if ((*this < money) || (*this == money)){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
-
-    bool Money::operator >= (const Money& money){
-        if ((*this > money) || (*this == money)){
-            return 1;
-        }
-        else{
-        return 0;
-        }
-    }
-
-    bool Money::operator != (const Money& money){
-        if ((this -> GetDollars() == money.GetDollars())){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
-
-    bool Money::operator == (const Money& money){
-        if ((this -> GetDollars() != money.GetDollars())){
-            return 0;
-        }
-        else{
-            return 1;
-        }
-    }
-
 
     Money operator + (const Money M1, const Money M2){
 
